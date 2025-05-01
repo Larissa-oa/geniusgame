@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+
+    <audio id="sound1" src="./assets/sounds/sound1.mp3"></audio>
+    <audio id="sound2" src="./assets/sounds/sound2.mp3"></audio>
+    <audio id="sound3" src="./assets/sounds/sound3.mp3"></audio>
+    <audio id="sound4" src="./assets/sounds/sound4.mp3"></audio>
+    <audio id="gameover" src="./assets/sounds/gameover.mp3"></audio>
+    <audio id="win" src="./assets/sounds/victory.mp3"></audio>
+</head>
+
+<body>
+    <div id="outter-frame">
+        <div class="genius-btn" id="top-left"></div>
+        <div class="genius-btn" id="top-right"></div>
+        <div class="genius-btn" id="bottom-left"></div>
+        <div class="genius-btn" id="bottom-right"></div>
+        <div id="inner-frame">
+            <div class="game-title"><h1>Genius</h1></div>
+            
+            <section class="row-game-interaction">
+                <div class="btn-inline">
+                    <div class="led-count"></div>
+                    <h3 class="btn-label">COUNT</h3>
+                </div>
+                <div class="btn-inline">
+            <button class="round-button" id="start-btn"></button>
+            <h3 class="btn-label">START</h3>
+        </div>
+        <div class="btn-inline">
+            <div id="led"></div>
+            <button class="round-button" id="strict-btn"></button>
+            <h3 class="btn-label">STRICT</h3>
+        </div>
+        </section>
+
+        <div class="toggle-btn-row">
+            <h3 class="toggle-btn-label">ON</h3>
+            <div class="toggle-btn-background">
+                <button class="toggle-btn" id="toggle-btn-on"></button>
+                <button class="toggle-btn toggle-active" id="toggle-btn-off"></button>
+            </div>
+            <h3 class="toggle-btn-label">OFF</h3>
+        </div>
+
+
+
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
