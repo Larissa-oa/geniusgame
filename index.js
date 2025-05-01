@@ -16,6 +16,7 @@ class GeniusGame {
       this.win = false
       this.initDOM()
       this.addEventListeners()
+      this.loadHighScores()
     }
   
     initDOM() {
@@ -35,11 +36,13 @@ class GeniusGame {
       this.sound3 = document.querySelector("#sound3")
       this.sound4 = document.querySelector("#sound4")
       this.gameOverSound = document.querySelector("#gameover")
+      this.winSound = document.querySelector("#victory")
     }
 
     /*EVENTLISTENERS */
   
     addEventListeners() {
+        
       this.strictButton.addEventListener("pointerdown", () => {
         this.strict = !this.strict
         this.ledPin.classList.toggle("led-on", this.strict)
@@ -137,7 +140,7 @@ class GeniusGame {
     play() {
       this.win = false
       clearInterval(this.intervalId)
-      this.order = Array.from({ length: 20 }, () => Math.floor(Math.random() * 4) + 1)
+      this.order = Array.from({ length: 30 }, () => Math.floor(Math.random() * 4) + 1)
       this.playerOrder = []
       this.flash = 0
       this.count = 1
@@ -178,6 +181,7 @@ class GeniusGame {
 
     one() {
         if (this.soundEffect) {
+            this.sound1.pause()
             this.sound1.currentTime = 0
             this.sound1.play()
         }
@@ -191,6 +195,7 @@ class GeniusGame {
     
     two() {
         if (this.soundEffect) { 
+            this.sound2.pause()
             this.sound2.currentTime = 0
             this.sound2.play()
         }
@@ -204,7 +209,8 @@ class GeniusGame {
     
     three() {
         if (this.soundEffect) {
-            this.soundEffect = true
+            this.sound3.pause()
+            this.sound3.currentTime = 0
             this.sound3.play()
         }
         this.soundEffect = true
@@ -217,10 +223,11 @@ class GeniusGame {
     
     four() {
         if (this.soundEffect){
-            this.soundEffect = true
+            this.sound4.pause()
+            this.sound4.currentTime = 0
              this.sound4.play()
         }
-        this.soundEffect = true
+        this.soundEffect = true 
     
         this.bottomRight.style.background = `radial-gradient(circle at 60% 40%, 
             rgb(140, 140, 255), 
@@ -296,11 +303,10 @@ class GeniusGame {
                 }
             }, 800)
 
-            this.soundEffect = false 
             this.flashColour()
         }
 
-        if (this.playerOrder.length === 20 && this.correct) {
+        if (this.playerOrder.length === 30 && this.correct) {
             this.winGame()
             return
         }
@@ -320,7 +326,9 @@ class GeniusGame {
         this.counter.innerHTML = "WINNER"
         this.on = false 
         this.win = true 
+        this.winSound.play()
       }
+
   }
 
   document.addEventListener("DOMContentLoaded", () => {
